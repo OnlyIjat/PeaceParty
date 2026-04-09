@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onlick="startMusic()">
     
     <div class="smoke"></div>
     <div class="smoke smoke2"></div>
@@ -50,51 +50,28 @@
     <div class="wait">
         <h6>We are waiting for your arrival.</h6>
     </div>
-    <audio id="bgm" controls>
+    <audio id="bgm" loop>
         <source src="ANJING DUB - DI TAMAN.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        const music = document.getElementById("bgm");
-let fadeInterval;
+const music = document.getElementById("bgm");
 
-// fade in saat mulai
-function fadeIn(audio) {
-    audio.volume = 0;
-    audio.play();
-
-    fadeInterval = setInterval(() => {
-        if (audio.volume < 0.95) {
-            audio.volume += 0.05;
-        } else {
-            audio.volume = 1;
-            clearInterval(fadeInterval);
-        }
-    }, 100);
+function startMusic() {
+    music.volume = 0;
+    music.play().then(() => {
+        let fade = setInterval(() => {
+            if (music.volume < 0.95) {
+                music.volume += 0.05;
+            } else {
+                music.volume = 1;
+                clearInterval(fade);
+            }
+        }, 100);
+    }).catch(() => {
+        console.log("Autoplay diblokir browser");
+    });
 }
-
-// fade out saat keluar halaman
-function fadeOut(audio) {
-    fadeInterval = setInterval(() => {
-        if (audio.volume > 0.05) {
-            audio.volume -= 0.05;
-        } else {
-            audio.volume = 0;
-            audio.pause();
-            clearInterval(fadeInterval);
-        }
-    }, 100);
-}
-
-// jalankan saat halaman dibuka
-window.addEventListener("load", () => {
-    fadeIn(music);
-});
-
-// fade out saat user keluar / pindah halaman
-window.addEventListener("beforeunload", () => {
-    fadeOut(music);
-});
     </script>
 </body>
 </html>
