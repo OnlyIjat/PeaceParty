@@ -1,0 +1,392 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    background: linear-gradient(-70deg, #e00000, #ffcc00, #00aa00);
+    background-size:200% 200%;
+    font-family: 'Luckiest Guy', sans-serif;
+    animation:gradientMove 10s ease infinite;
+}
+
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* SMOKE */
+.smoke{
+    position:absolute;
+    bottom:-100px;
+    width:200px;
+    height:200px;
+    background:radial-gradient(circle, rgba(29, 3, 3, 0.651) 10%, transparent 70%);
+    border-radius:50%;
+    animation:smokeMove 12s linear infinite;
+    opacity:0.4;
+}
+
+.smoke2{
+    left:50%;
+    animation-delay:4s;
+}
+
+.smoke3{
+    left:20%;
+    animation-delay:8s;
+}
+
+@keyframes smokeMove{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:0.4;
+    }
+    100%{
+        transform:translateY(-800px) scale(1.8);
+        opacity:0;
+    }
+}
+
+.leaf {
+    position: absolute;
+    width: 850px;
+    left: 57%;
+    top: 20%;
+    display: inline-block;
+    rotate: calc(-125deg);
+    animation: sway 3s ease-in-out infinite alternate;
+    opacity: 95%;
+}
+
+.leaf2 {
+    position: absolute;
+    width: 1000px;
+    right:50%;
+    top: -60%;
+    display: inline-block;
+    rotate: calc(140deg);
+    animation: sway 3s ease-in-out infinite alternate;
+    opacity: 90%;
+}
+
+
+/* HAND */
+.hand{
+    position:absolute;
+    top:30px;
+    right:10%;
+    rotate: calc(20deg);
+    animation:bounce 2s infinite;
+}
+
+/* PEACE SYMBOL */
+.peace{
+    position:absolute;
+    top: 11%;
+    left: 44%;
+    animation: heartbeat 5s infinite;
+}
+
+.siluet{
+    position:absolute;
+    top: 11.8%;
+    left: 44.8%;
+    animation: heartbeat 5s infinite;
+    opacity: 0.5;
+}
+
+.bob{
+    position: absolute;
+    width: 70%;
+    top: 20%;
+    opacity: 55%;
+    animation:heartbeat 7s infinite;
+}
+
+.title{
+    position:absolute;
+    top:100px;
+    width:100%;
+    text-align:center;
+    font-family:'Luckiest Guy', cursive;
+    font-size:120px;
+    line-height:75px;
+    text-shadow:4px 4px 0 black;
+    animation:fadeUp 2s 1s forwards;
+    opacity:0;
+}
+
+.red{
+    color:#ff0000;
+    white-space: pre;
+}
+.green{color:#00ff55;}
+
+/* ACTIVITY */
+.activity{
+    position:absolute;
+    bottom:180px;
+    width:100%;
+    text-align:center;
+    color:white;
+    text-shadow:4px 4px 0 black;
+    font-size:20px;
+    letter-spacing:2px;
+    animation:fadeUp 2s 2s forwards;
+    opacity:0;
+}
+
+.activity span{
+    display:block;
+    font-size:23px;
+    font-weight:bold;
+}
+
+/* DATE */
+.date{
+    position:absolute;
+    top:25px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    letter-spacing:2px;
+    text-shadow:4px 4px 0 black;
+    animation:fadeUp 2s 3s forwards;
+    opacity:0;
+}
+.date :hover {
+    color: aqua;
+}
+
+/* ADDRESS */
+.address{
+    position:absolute;
+    bottom:100px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:18px;
+    letter-spacing:2px;
+    text-shadow:4px 4px 0 black;
+    animation:fadeUp 2s 3s forwards;
+    opacity:0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.address span :hover{
+    color: aqua;
+}
+
+.address span{
+    display:block;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+/* Animasi goyang */
+@keyframes sway {
+    0% {
+        transform: rotate(-10deg) translateX(-10px);
+    }
+    50% {
+        transform: rotate(5deg) translateX(10px);
+    }
+    100% {
+        transform: rotate(-5deg) translateX(-5px);
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+@keyframes heartbeat{
+    0%,50%,100%{transform: rotate(0) scale(1);}
+    25%{transform: rotate(3deg) scale(1.01);}
+    75%{transform: rotate(3deg) scale(1.01);}
+}
+
+.wait{
+    position:absolute;
+    bottom:35px;
+    width:100%;
+    text-align:center;
+    font-family: sans-serif;
+    color:white;
+    font-size:15px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 0 black;
+    animation:fadeUp 3s 4s forwards;
+    opacity:0;
+}
+/* TABLET PORTRAIT */
+@media (max-width:1024px) and (orientation: portrait){
+.title{
+    letter-spacing: 1px;
+    line-height:70px;
+    top:15%;
+}
+
+.date{
+    font-size:30px;
+}
+
+.bob{
+    width:95%;
+    top:40%;
+}
+
+.peace{
+    width: 85%;
+    left:42%;
+}
+
+.siluet{
+    width: 85%;
+    left:42.5%;
+}
+
+.leaf{
+    width:650px;
+    left:45%;
+    top:47%;
+}
+
+.leaf2{
+    width: 800px;
+    top:-10%;
+    left: -40%;
+}
+
+.hand{
+    width: 60%;
+    left: 65%;
+    top: 5%;
+}
+
+.activity{
+    bottom:200px;
+    font-size:18px;
+    padding:0 40px;
+}
+
+.address{
+    bottom:120px;
+    font-size:16px;
+}
+
+.wait{
+    font-size:35px;
+}
+
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width:600px) and (orientation: portrait){
+
+.title{
+    font-size:45px;
+    line-height:35px;
+    top:60px;
+}
+
+.date{
+    font-size:14px;
+    top: 7px;
+}
+
+.bob{
+    width:130%;
+    top:30%;
+}
+
+.peace{
+    left:41%;
+    top:11%;
+    width: 88%;
+}
+
+.siluet{
+    left:41.8%;
+    top:11.8%;
+    width: 88%;
+}
+
+.leaf{
+    width:350px;
+    left:35%;
+    top:32%;
+}
+
+.leaf2{
+    width:450px;
+    top:-15%;
+    left: -63%;
+}
+
+.hand{
+    width:150px;
+    right:-12%;
+    top: 9%;
+}
+
+.activity{
+    bottom:110px;
+    font-size:13px;
+    padding:0 20px;
+}
+
+.activity span{
+    font-size:13px;
+}
+
+.address{
+    bottom:50px;
+    font-size:10px;
+}
+
+.address span{
+    font-size:13px;
+}
+
+.wait{
+    font-size:12px;
+    bottom: 7px;
+}
+
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peace Party Festival</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Luckiest+Guy&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div class="smoke"></div>
+    <div class="smoke smoke2"></div>
+    <div class="smoke smoke3"></div>
+    
+    
+
+    <img class="bob" src="bobmarley.png">
+    <img class="leaf2" src="istockphoto-1344625868-612x612-removebg-preview.png" alt="">
+
+    <div class="hand"><img src="piss-removebg-preview.png" width="55%"></div>
+
+    <div class="title">
+        <div class="red">PE   CE</div>
+        <div class="green">PARTY</div>
+    </div>
+
+    <div class="peace"><img src="peacelogo.png" width="22%"></div>
+
+    <div class="siluet"><img src="peacelogo.png" width="22%"></div>
+
+    <img class="leaf" src="istockphoto-1344625868-612x612-removebg-preview.png" alt="">
+ 
+    <div class="activity">
+        Let's celebrate the day of victory
+        <span>where you can be free with a never ending party.</span>
+    </div>
+    
+    <div class="date">
+        <span><a href="date.html" target="_blank">date</a></span>
+    </div>
+    
+    
+    <div class="address">
+        ADDRESS
+        <span><a href="https://www.google.com/maps/place/Pantai+Pangandaran/@-7.6934579,108.6245884,13z/data=!3m1!4b1!4m6!3m5!1s0x2e65987adb093d71:0xe033ec8ca217e8c1!8m2!3d-7.6875535!4d108.6387427!16s%2Fg%2F12z84pv6z?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍PANGANDARAN BEACH</a></span>
+    </div>    
+
+    <div class="wait">
+        <h6>We are waiting for your arrival.</h6>
+    </div>
+    <audio id="bgm" autoplay loop>
+        <source src="ANJING DUB - DI TAMAN.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById("bgm");
+let fadeInterval;
+
+// fade in saat mulai
+function fadeIn(audio) {
+    audio.volume = 0;
+    audio.play();
+
+    fadeInterval = setInterval(() => {
+        if (audio.volume < 0.95) {
+            audio.volume += 0.05;
+        } else {
+            audio.volume = 1;
+            clearInterval(fadeInterval);
+        }
+    }, 100);
+}
+
+// fade out saat keluar halaman
+function fadeOut(audio) {
+    fadeInterval = setInterval(() => {
+        if (audio.volume > 0.05) {
+            audio.volume -= 0.05;
+        } else {
+            audio.volume = 0;
+            audio.pause();
+            clearInterval(fadeInterval);
+        }
+    }, 100);
+}
+
+// jalankan saat halaman dibuka
+window.addEventListener("load", () => {
+    fadeIn(music);
+});
+
+// fade out saat user keluar / pindah halaman
+window.addEventListener("beforeunload", () => {
+    fadeOut(music);
+});
+    </script>
+</body>
+</html>
