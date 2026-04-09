@@ -26,6 +26,27 @@ body{
     100%{background-position:0% 50%;}
 }
 
+.music{
+    position: relative;
+    top: 45%;
+    right: 35%;
+    padding-right: 15%;
+}
+
+    audio::-webkit-media-controls-panel {
+    display: flex;
+    justify-content: center;
+}
+
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+
+
 /* SMOKE */
 .smoke{
     position:absolute;
